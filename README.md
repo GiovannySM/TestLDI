@@ -56,7 +56,7 @@ Ejemplo de respuesta:
 <a name="test"></a>
 ### Ambientes
 
-### Local
+### Ejecución Normal
 Se debe ejecutar 
 ```php
   http://localhost:{puerto}/api/PhoneDirectories

@@ -13257,11 +13257,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giova\\source\\repos\\TestLDI_CGSM\\TestLDI\\TestLDI\\TestLDI.csproj",
+      "projectUniqueName": "C:\\Users\\giova\\Source\\Repos\\Test\\TestLDI\\TestLDI.csproj",
       "projectName": "TestLDI",
-      "projectPath": "C:\\Users\\giova\\source\\repos\\TestLDI_CGSM\\TestLDI\\TestLDI\\TestLDI.csproj",
+      "projectPath": "C:\\Users\\giova\\Source\\Repos\\Test\\TestLDI\\TestLDI.csproj",
       "packagesPath": "C:\\Users\\giova\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\giova\\source\\repos\\TestLDI_CGSM\\TestLDI\\TestLDI\\obj\\",
+      "outputPath": "C:\\Users\\giova\\Source\\Repos\\Test\\TestLDI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

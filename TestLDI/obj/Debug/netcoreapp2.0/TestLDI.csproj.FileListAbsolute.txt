@@ -1,0 +1,11 @@
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.csprojAssemblyReference.cache
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.csproj.CoreCompileInputs.cache
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.AssemblyInfoInputs.cache
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.AssemblyInfo.cs
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\bin\Debug\netcoreapp2.0\TestLDI.deps.json
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\bin\Debug\netcoreapp2.0\TestLDI.runtimeconfig.json
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\bin\Debug\netcoreapp2.0\TestLDI.runtimeconfig.dev.json
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\bin\Debug\netcoreapp2.0\TestLDI.dll
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\bin\Debug\netcoreapp2.0\TestLDI.pdb
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.dll
+C:\Users\giova\source\repos\TestLDI_CGSM\TestLDI\TestLDI\obj\Debug\netcoreapp2.0\TestLDI.pdb

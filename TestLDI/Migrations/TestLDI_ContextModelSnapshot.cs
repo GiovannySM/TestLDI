@@ -25,7 +25,7 @@ namespace TestLDI.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CellPhone");
+                    b.Property<long>("CellPhone");
 
                     b.Property<string>("Email")
                         .IsRequired()

@@ -32,17 +32,17 @@ namespace TestLDI.Models
         public string Email { get; set; }
 
         [Required(AllowEmptyStrings = true, ErrorMessage = "El {0} es requerido.")]
-        [Range(1, 9999)]
-        [Phone(ErrorMessage = "El {0}, no es un Teléfono Fijo valido.")]
+        [Range(1, 99999999999999)]
+        //[Phone(ErrorMessage = "El {0}, no es un Teléfono Fijo valido.")]
         [Display(Name = "Teléfono Fijo", Prompt = "Teléfono Fijo")]
-        [DataType(dataType: DataType.Text)]
+        [DataType(dataType: DataType.PhoneNumber)]
         public int Phone { get; set; }
 
         [Required(AllowEmptyStrings = true, ErrorMessage = "El {0} es requerido.")]
-        [Range(1, 9999)]
-        [Phone(ErrorMessage = "El {0}, no es un Teléfono Fijo valido.")]
-        [Display(Name = "Teléfono Fijo", Prompt = "Teléfono Fijo")]
-        [DataType(dataType: DataType.Text)]
-        public int CellPhone { get; set; }
+        [Range(1, 99999999999999)]
+        //[Phone(ErrorMessage = "El {0}, no es un Teléfono Fijo valido.")]
+        [Display(Name = "Teléfono Celular", Prompt = "Teléfono Celular")]
+        [DataType(dataType: DataType.PhoneNumber)]
+        public long CellPhone { get; set; }
     }
 }

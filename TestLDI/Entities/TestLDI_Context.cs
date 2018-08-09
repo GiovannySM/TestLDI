@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace TestLDI.Models
+namespace TestLDI.Entities
 {
     public class TestLDI_Context:DbContext
     {

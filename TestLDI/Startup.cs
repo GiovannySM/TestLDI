@@ -8,7 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
-using TestLDI.Models;
+using TestLDI.Entities;
+using TestLDI.Services;
 
 namespace TestLDI
 {
@@ -54,9 +55,13 @@ namespace TestLDI
                     ValidateAudience = false,
                     ValidateIssuerSigningKey = true,
                     ValidateLifetime = true,
+                    RequireExpirationTime = false,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
+
+            //Registramos la Interfaz de intalación.
+            services.AddTransient<IDBContextConfiguration, DBContextConfiguration>();
 
             services.AddMvc();
         }

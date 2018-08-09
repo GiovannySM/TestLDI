@@ -3,26 +3,21 @@ Api REST - Líder De Desarrollo De Integraciones
 =======
 
 + [Instalación](#instalacion)
- 	+ [Generalidades](#general)
+ 	+ [Modificación ConnectionString](#appsettingsjson)
+	+ [Generar Token](#token)	
+	+ [Instalar Base de Datos](#installDB)
 + [Uso](#uso)
-    + [Modificación appsettings.json](#appsettingsjson)
-    + [Ambientes](#test)
-    + [Autenticación Header](#autenticacion)
 
 
 <a name="instalacion"></a>
 ## Instalación
-La Instalación de la base de datos, es automatica ya que se empleo el EF para su correcto funcionamiento, se debe realizar la configuración del appsettings.json
+El API REST desarrollado en .NET Core, usará las migraciones para crear la base de datos a partir del modelo de EF Core, para tener el acceso a datos básicos mediante Entity Framework Core.
 
-[<sub>Volver a inicio</sub>](#inicio)
-<br>
-
-<a name="uso"></a>
-## Uso
 <a name="appsettingsjson"></a>
 ### Modificación appsettings.json.
 
-- Modificar la cadena DefaultConnection del appsettings.json, se debe asignar el nombre del servidor, base de datos, usuario y password.
+Modificar la cadena de conexión DefaultConnection del appsettings.json, se debe asignar el nombre del servidor, base de datos, usuario y password.
+
 ```php
 Server=(Local);Database=TestLDI_864746;User=sa;Password=Password;MultipleActiveResultSets=true
 ```
@@ -54,44 +49,51 @@ Ejemplo de respuesta:
 [<sub>Volver a inicio</sub>](#inicio)
 <br>
 
-<a name="test"></a>
-### Ambientes
+<a name="token"></a>
+### Generar Token
 
-### Ejecución Normal
-Se debe ejecutar 
-```php
-  http://localhost:{puerto}/api/PhoneDirectories
-```
-### Swagger
-Se debe ejecutar 
+El API REST, contiene autenticacion por JWT JSON Web Token. En caso de que este valor no se encuentre presente se debe responder con un código 401 Unauthorized, para ello se debera iniciar la aplicación de la siguiente manera:
+
 ```php
   http://localhost:{puerto}/swagger/index.html
 ```
+
+### Tokens
+### Get /api/Tokens
+
+Enviar en el Parametro *ApiKey* el Valor: ABCCDEFSS03457273647, si se envia otro valor salda error en el ApiKey.
+
+**Observación**: Todas las métodos del API REST, requieren autenticación por Token.
+
+El Token generado debera enviarse en el menu Authorize el valor del token: Authorization: Bearer {token generado}
+
+Se podra tener acceso a los métodos del *InstallDB, PhoneDirectories*
 
 [<sub>Volver a inicio</sub>](#inicio)
 <br>
 
-<a name="autenticacion"></a>
-### Autenticación Header
-El API REST, contiene autenticacion por JWT JSON Web Token. En caso de que este valor no se encuentre presente se debe responder con un código 401 Unauthorized.
+<a name="installDB"></a>
+### Instalar Base de Datos
 
-Se debera iniciar la aplicación
+Despues de realizar la autenticación, se debe consumir el método 'GET' del api/InstallDB
+
+### InstallDB
+### Get /api/InstallDB
+
+```php
+  http://localhost:{puerto}/swagger/index.html
+  http://localhost:{puerto}/api/InstallDB
+```
+[<sub>Volver a inicio</sub>](#inicio)
+<br>
+
+<a name="uso"></a>
+### Uso
+
+Su uso y documentación esta basado en Swashbuckle.AspNetCore, que permite ejecutar la aplicación con Swagger.
 
 ```php
   http://localhost:{puerto}/swagger/index.html
 ```
-
-Se debe ubicar 
-### Tokens
-### Get /api/Tokens
-
-Enviar en el Parametro *Signature* el Valor: ABCCDEFSS03457273647, si se envia otro valor salda error en el signature.
-
-**Observación**: Para generar el Token debe enviarse la ApiKey con el siguiente valor ABCCDEFSS03457273647
-
-El Token generado debera enviarse en el menu Authorize el valor del token: Authorization: Bearer {token generado}
-
-Se podra tener acceso a los métodos del *PhoneDirectories*
-
 [<sub>Volver a inicio</sub>](#inicio)
-
+<br>

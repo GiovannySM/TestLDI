@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TestLDI.Models;
+using TestLDI.Entities;
 
 namespace TestLDI.Controllers
 {
@@ -19,6 +19,10 @@ namespace TestLDI.Controllers
     {
         private readonly TestLDI_Context _context;
 
+        /// <summary>
+        /// PhoneDirectoriesController: Constructor
+        /// </summary>
+        /// <param name="context"></param>
         public PhoneDirectoriesController(TestLDI_Context context)
         {
             _context = context;

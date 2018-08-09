@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TestLDI.Models
+namespace TestLDI.Entities
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<TestLDI_Context>
     {

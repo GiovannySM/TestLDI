@@ -14,40 +14,48 @@ namespace TestLDI.Controllers
 {
     [Produces("application/json")]
     [Route("api/Tokens")]
-    public class TokensController : Controller
+    public class CreateTokensController : Controller
     {
+        /// <summary>
+        /// Configuration: Instancia la interfaz de configuraciones
+        /// </summary>
         public IConfiguration Configuration { get; }
-        public TokensController(IConfiguration configuration)
+
+        /// <summary>
+        /// CreateTokensController: Constructor
+        /// </summary>
+        /// <param name="configuration"></param>
+        public CreateTokensController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         [HttpGet]
-        public IActionResult Get(string Signature)
+        public IActionResult Get(string ApiKey)
         {
-            return new ObjectResult(GenerateToken(Signature));
+            return new ObjectResult(GenerateToken(ApiKey));
         }
 
         private object GenerateToken(string Signature)
         {
+            //Obtiene el ApiKey desde el appsettings.json
             string KeyConfig = Configuration["Jwt:Key"];
 
+            //Compara las ApiKeys para proceder a generar el token.
             if (KeyConfig == Signature)
             {
                 var IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(KeyConfig));
-
                 var token = new JwtSecurityToken(
                  notBefore: new DateTimeOffset(DateTime.Now).DateTime,
                  expires: new DateTimeOffset(DateTime.Now.AddMinutes(60)).DateTime,
                  signingCredentials: new SigningCredentials(IssuerSigningKey,
                                                      SecurityAlgorithms.HmacSha256)
                  );
-
                 return new JwtSecurityTokenHandler().WriteToken(token);
             }
             else
             {
-                return BadRequest("Signature Invalid");
+                return BadRequest("ApiKey Invalid");
             }
         }
     }

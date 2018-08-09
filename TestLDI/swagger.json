@@ -24,11 +24,22 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/PhoneDirectoryItem"
+                "$ref": "#/definitions/PhoneDirectory"
+              }
+            }
+          },
+          "401": {
+            "description": "Not Authorized - The user has not supplied the necessary credentials to access the resource."
+          },
+          "403": {
+            "description": "Forbidden - The user does not have the necessary permissions to access the resource.",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
               }
             }
           }
-        }
       },
       "post": {
         "..."

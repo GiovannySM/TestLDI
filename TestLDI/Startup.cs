@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using TestLDI.Models;
 
@@ -28,11 +26,36 @@ namespace TestLDI
         {
             //Se Instancia el DBContex de EF.
             services.AddDbContext<TestLDI_Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
             // Registrar el generador Swagger, que define 1 o más documentos de Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "API REST Phone Directory", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme()
+                {
+                    Description = "JSON Web Token Authorization header. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"                    
+                });
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                {
+                    { "Bearer", new string[] { } }
+                });
+            });
+
+            //Registrar el Servicio Json Web Token
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                };
             });
 
             services.AddMvc();
@@ -55,6 +78,9 @@ namespace TestLDI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API REST Phone Directory");
             });
+
+            // Habilit la autenticación por JWT
+            app.UseAuthentication();
 
             app.UseMvc();
         }

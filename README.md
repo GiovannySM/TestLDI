@@ -29,6 +29,7 @@ Server=(Local);Database=TestLDI_864746;User=sa;Password=Password;MultipleActiveR
 
 Se debe validar que se cuente con el acceso al servidor de base de datos, el servidor puede ser local o remoto, el modelo de datos sera el siguiente.
 
+
 Campo       | Descripción           | Tipo de dato | Ejemplo
 ------------|-----------------------|--------------|--------
 id          | Id del Directorio Telefónico    | autonumérico     | 1
@@ -72,9 +73,25 @@ Se debe ejecutar
 
 <a name="autenticacion"></a>
 ### Autenticación Header
-El SDK permite ejecutar las transacciones validando la presencia de un header "JWT". En caso de que este valor no se encuentre presente se debe responder con un código 401 Not Authorized.
-Esta funcionalidad es útil para obtener los parámetros de configuración dentro de la implementación.
+El API REST, contiene autenticacion por JWT JSON Web Token. En caso de que este valor no se encuentre presente se debe responder con un código 401 Unauthorized.
 
-**Observación**: El "JWT" se debe enviar con el siguiente valor ABCCDEFSS03457273647
+Se debera iniciar la aplicación
+
+```php
+  http://localhost:{puerto}/swagger/index.html
+```
+
+Se debe ubicar 
+### Tokens
+### Get /api/Tokens
+
+Enviar en el Parametro *Signature* el Valor: ABCCDEFSS03457273647, si se envia otro valor salda error en el signature.
+
+**Observación**: Para generar el Token debe enviarse la ApiKey con el siguiente valor ABCCDEFSS03457273647
+
+El Token generado debera enviarse en el menu Authorize el valor del token: Authorization: Bearer {token generado}
+
+Se podra tener acceso a los métodos del *PhoneDirectories*
 
 [<sub>Volver a inicio</sub>](#inicio)
+

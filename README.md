@@ -22,7 +22,7 @@ Modificar la cadena de conexión DefaultConnection del appsettings.json, se debe
 Server=(Local);Database=TestLDI_864746;User=sa;Password=Password;MultipleActiveResultSets=true
 ```
 
-Se debe validar que se cuente con el acceso al servidor de base de datos, el servidor puede ser local o remoto, el modelo de datos sera el siguiente.
+Se debe validar que se cuente con el acceso al servidor de base de datos, el servidor puede ser local o remoto, el modelo de datos será el siguiente.
 
 
 Campo       | Descripción           | Tipo de dato | Ejemplo
@@ -52,7 +52,7 @@ Ejemplo de respuesta:
 <a name="token"></a>
 ### Generar Token
 
-El API REST, contiene autenticacion por JWT JSON Web Token. En caso de que este valor no se encuentre presente se debe responder con un código 401 Unauthorized, para ello se debera iniciar la aplicación de la siguiente manera:
+El API REST, contiene autenticación por JWT JSON Web Token. En caso de que este valor no se encuentre presente se debe responder con un código 401 Unauthorized, para ello se deberá iniciar la aplicación de la siguiente manera:
 
 ```php
   http://localhost:{puerto}/swagger/index.html
@@ -61,13 +61,13 @@ El API REST, contiene autenticacion por JWT JSON Web Token. En caso de que este 
 ### Tokens
 ### Get /api/Tokens
 
-Enviar en el Parametro *ApiKey* el Valor: ABCCDEFSS03457273647, si se envia otro valor salda error en el ApiKey.
+Enviar en el Parámetro *ApiKey* el Valor: ABCCDEFSS03457273647, si se envía otro valor salda error en el ApiKey.
 
-**Observación**: Todas las métodos del API REST, requieren autenticación por Token.
+**Observación**: Todos los métodos del API REST, requieren autenticación por Token.
 
-El Token generado debera enviarse en el menu Authorize el valor del token: Authorization: Bearer {token generado}
+El Token generado deberá enviarse en el menú Authorize el valor del token: Authorization: Bearer {token generado}
 
-Se podra tener acceso a los métodos del *InstallDB, PhoneDirectories*
+Se podrá tener acceso a los métodos del *InstallDB, PhoneDirectories*
 
 [<sub>Volver a inicio</sub>](#inicio)
 <br>
@@ -75,7 +75,7 @@ Se podra tener acceso a los métodos del *InstallDB, PhoneDirectories*
 <a name="installDB"></a>
 ### Instalar Base de Datos
 
-Despues de realizar la autenticación, se debe consumir el método 'GET' del api/InstallDB
+Después de realizar la autenticación, se debe consumir el método 'GET' del api/InstallDB
 
 ### InstallDB
 ### Get /api/InstallDB
@@ -90,7 +90,7 @@ Despues de realizar la autenticación, se debe consumir el método 'GET' del api
 <a name="uso"></a>
 ### Uso
 
-Su uso y documentación esta basado en Swashbuckle.AspNetCore, que permite ejecutar la aplicación con Swagger.
+Su uso y documentación está basado en Swashbuckle.AspNetCore, que permite ejecutar la aplicación con Swagger.
 
 ```php
   http://localhost:{puerto}/swagger/index.html
